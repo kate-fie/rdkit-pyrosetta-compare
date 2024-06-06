@@ -1,5 +1,4 @@
-## rdkit-pyrosetta-compare
-## Comparing pose and affinity prediction of ligands from constrained energy minimisation to inspiration fragments
+## rdkit-pyrosetta-compare: Comparing pose and affinity prediction of ligands from constrained energy minimisation to inspiration fragments
 
 **Purpose:** Compare RDKit and PyRosetta for pose and affinity prediction of ligands calculated by constrained energy 
 minimisation to inspiration fragments to understand if RDKit and PyRosetta placements can be used interchangeably. 

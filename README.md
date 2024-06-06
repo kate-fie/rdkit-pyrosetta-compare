@@ -34,22 +34,3 @@ Results were gathered in [get_results.ipynb](get_results.ipynb). To execute the 
 
 **Analysis:**
 [rdkit-pyrosetta-compare.ipynb](rdkit-pyrosetta-compare.ipynb)
-
-In any task in the realm of virtual screening, there need to be many filters applied to a dataset of ligands to downselect
-the 'best' ones on a number of parameters to produce a manageable size. One popular filter is if a compound has a physical
-pose and good affinity as predicted by tools such as docking or energy minimisation. In my pipeline for downselecting 
-elaborations of compounds proposed as fragment follow-ups, I calculate the pose and ΔΔG by energy minimizing the ligand
-with atom restraints to matching atoms in the fragment inspiration. I either use RDKit using its MMFF94 forcefield 
-or PyRosetta using its ref2015 scorefunction, all made possible by the lovely tool [Fragmenstein](https://github.com/matteoferla/Fragmenstein). 
-
-With RDKit as the minimizer the protein neighborhood around the ligand is fixed and placements take on average 21 s whereas
-with PyRosetta placements, they take on average 238 s (and I can run placements in parallel luckily). 
-I would ideally like to use RDKit as the placement method since it is so fast and I would like to perform 500K within a few days
-but, I wanted to confirm that RDKit is 'good enough' compared to the slightly more rigorous tool PyRosetta (it allows 
-residues to relax and samples more conformations with the longer runtime I think). 
-
-To find out if I can trust RDKit's placement with the MMFF94 forcefield, check out my analysis of 10 repeated placements 
-of 69 fragment follow-up ligands with 1 protein template. I wrote out the notebooks so you can easily follow my calculations of 
-ligand and residue RMSD between methods and checks of the conformations with PoseBusters, outputting some surprising results!
-And if you're running into the same questions of comparing pose and affinity prediction methods, I hope you find the code useful. 
-
